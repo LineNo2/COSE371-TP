@@ -65,7 +65,7 @@ echo '
 <input type="hidden" class="form-control" id="emp_no" name="emp_no" value="'.$emp_no.'">
   <div class="mb-3">
     <label for="work_date" class="form-label">일시</label>
-    <input type="date" class="form-control" id="work_start_date" name="work_start_date" required>
+    <input type="date" class="form-control" id="work_date" name="work_date" required>
   </div>
   <div class="mb-3">
     <label for="start_time" class="form-label">시작 시간</label>

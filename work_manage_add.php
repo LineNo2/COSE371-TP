@@ -8,7 +8,7 @@ $sql = "INSERT INTO work_record (emp_no, work_begin, work_end) VALUES ($emp_no, 
 echo $sql;
 $result = mysqli_query($conn, $sql);
 if($result){
-    echo "<script>alert('근무 추가 완료');history.back();</script>";
+    echo "<script>alert('근무 추가 완료. 화면을 새로고침 해주세요.');history.back();</script>";
 }else{
     echo "<script>alert('근무 추가 실패');history.back();</script>";
 }
