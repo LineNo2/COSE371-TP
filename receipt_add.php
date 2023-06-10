@@ -22,7 +22,7 @@ $row = mysqli_fetch_array($result);
 $receipt_no = $row['receipt_no'];
 echo $receipt_no;
 for($i=0;$i<5;$i++){
-    if(isset($_POST['menu_no'.$i])){
+    if(isset($_POST['menu_no-'.$i])){
         $menu_name = $_POST['menu-'.$i];
         $menu_count = $_POST['menu-'.$i.'-count'];
         $sql = "INSERT INTO made_menu (menu_name, count, receipt_no) VALUES ('$menu_name',$menu_count,$receipt_no)";
