@@ -73,7 +73,7 @@ include 'header.php';
             alert("메뉴를 추가해주세요.");
             return false;
         }
-        documetn.receipt_add.submit();
+        document.receipt_add.submit();
         return true;
     }
     function ajax_search_emp() {
