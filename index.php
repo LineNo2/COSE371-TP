@@ -5,7 +5,7 @@ include 'header.php';
 <body>
     <?php
     $sql = "SELECT * FROM `employee`";
-    $result = $conn->query($sql);
+    $result = mysqli_query($conn, $sql);
     echo $result;
     ?>  
 </body>
