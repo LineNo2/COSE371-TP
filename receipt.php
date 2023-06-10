@@ -4,7 +4,7 @@ include 'header.php';
 ?>
 <h2>주문 추가</h2>
 <!-- make form with POST method to employee_add.php, and requirements is same to above table-->
-<form name="empolyee_add" action="./receipt_add.php" method="post">
+<form name="receipt_add" action="./receipt_add.php" method="post">
   <div class="mb-3">
     <label for="employee" class="form-label">담당 직원</label>
     <input type="text" class="form-control" id="employee" name="employee" placeholder="담당 직원 검색" required>
@@ -21,7 +21,7 @@ include 'header.php';
   </div>
   <div class="mb-3" id="menu-list">
   </div>
-  <button type="submit" class="btn btn-primary">주문 추가</button>
+  <input type="button" value="주문 추가" onclick="validate_input()"class="btn btn-primary">
 </form>
 <hr>
 <h2>주문 내역</h2>
@@ -60,6 +60,22 @@ include 'header.php';
     let employee = [];
     let menu_list = [];
     let cur_menu = 0;
+    function validate_input(){
+        if(document.getElementById("employee").value == "" || document.getElementById("emp_no").value == ""){
+            alert("담당 직원을 입력해주세요.");
+            return false;
+        }
+        if(document.getElementById("cust_tel").value == ""){
+            alert("고객 전화번호를 입력해주세요.");
+            return false;
+        }
+        if(document.getElementById("menu-1").readonly == false){
+            alert("메뉴를 추가해주세요.");
+            return false;
+        }
+        documetn.receipt_add.submit();
+        return true;
+    }
     function ajax_search_emp() {
     var search = document.getElementById("employee").value;
     var xhttp = new XMLHttpRequest();
