@@ -55,6 +55,7 @@ include 'header.php';
 </table>
 
 <script>
+    let employee = [];
     function ajax_search_emp() {
     var search = document.getElementById("employee").value;
     var xhttp = new XMLHttpRequest();
