@@ -38,11 +38,23 @@ include 'header.php';
 <h2>직원 추가</h2>
 <!-- make form with POST method to employee_add.php, and requirements is same to above table-->
 <form name="empolyee_add" action="./employee_add.php" method="post">
-    <input type="text" name="name" placeholder="이름">
-    <input type="text" name="date_of_birth" placeholder="생년월일">
-    <input type="text" name="gender" placeholder="성별">
-    <input type="text" name="emp_tel" placeholder="휴대폰번호">
-    <input type="submit" value="직원 추가">
+  <div class="mb-3">
+    <label for="name" class="form-label">이름</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="이름">
+  </div>
+  <div class="mb-3">
+    <label for="date_of_birth" class="form-label">생년월일</label>
+    <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" placeholder="생년월일">
+  </div>
+  <div class="mb-3">
+    <label for="gender" class="form-label">성별</label>
+    <input type="text" class="form-control" id="gender" name="date_of_birth" placeholder="성별">
+  </div>
+  <div class="mb-3">
+    <label for="emp_tel" class="form-label">휴대폰번호</label>
+    <input type="tel" class="form-control" id="emp_tel" name="emp_tel" placeholder="휴대폰번호">
+  </div>
+  <button type="submit" class="btn btn-primary">직원 추가</button>
 </form>
 <?php 
 include 'footer.php'; 
