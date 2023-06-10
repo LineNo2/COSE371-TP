@@ -125,7 +125,7 @@ function ajax_search_menu(cur_menu) {
             }
         }
     };
-    xhttp.open("GET", "menu_search_ajax.php?keyword=" + document.querySelector(`#menu-${cur_menu} > input`).value, true);
+    xhttp.open("GET", "menu_search_ajax.php?keyword=" + document.querySelector(`#menu-${cur_menu}`).value, true);
     xhttp.send();
 }
     function len(gth) {
