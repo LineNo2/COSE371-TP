@@ -9,13 +9,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  </head>
  <style>
-  .navbar-korea{
+  .navbar-korea > *{
+    font-weight: 800;
     background-color: #dc143c;
-    color: white;
-  }
-  .bg-korea{
-    background-color: #dc143c;
-    color: white;
+    color: #C5B9AC;
   }
   </style>
 <body>
