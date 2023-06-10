@@ -33,7 +33,7 @@ for($i=0;$i<5;$i++){
     }
 }
 
-$sql = "SELECT point FROM receipt NATURAL JOIN menu_made NATURAL JOIN menu_list WHERE receipt_no = '$receipt_no'";
+$sql = "SELECT point FROM receipt NATURAL JOIN made_menu NATURAL JOIN menu_list WHERE receipt_no = '$receipt_no'";
 $result = mysqli_query($conn, $sql);
 if(!$result){
     echo "<script>alert('포인트 계산 실패');history.back();</script>";

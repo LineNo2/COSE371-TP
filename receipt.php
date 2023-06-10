@@ -17,7 +17,7 @@ include 'header.php';
   </div>
   <div class="mb-3">
     <label for="cust_tel" class="form-label">메뉴 추가</label>
-    <input type="button" value="+" onclick="add_menu()">
+    <input type="button" value="+" class="btn btn-success" onclick="add_menu()">
   </div>
   <div class="mb-3" id="menu-list">
   </div>
@@ -49,7 +49,7 @@ include 'header.php';
         echo '<td>'.$row['emp_no'].'</td>';
         echo '<td>'.$row['cust_tel'].'</td>';
         echo '<td>'.$row['point'].'</td>';
-        echo '<td><input type="button" value="삭제" class="btn btn-danger" onclick="location.href=`recepit_delete.php?emp_no='.$row['receipt_no'].'`"></td>';
+        echo '<td><input type="button" value="삭제" class="btn btn-danger" onclick="location.href=`receipt_delete.php?receipt_no='.$row['receipt_no'].'`"></td>';
         echo '</tr>';
     }
     ?>  
@@ -98,7 +98,6 @@ function add_menu() {
     <input type="text" class="form-control" id="menu-${cur_menu}" name="menu-${cur_menu}" placeholder="메뉴 이름" required>
     <input type="number" max="10" min="1" class="form-control" id="menu-${cur_menu}-count" name="menu-${cur_menu}-count" placeholder="수량 입력" required>
     <input type="button" class="btn btn-success" onclick="ajax_search_menu(${cur_menu})" value="메뉴 추가">
-    <input type="button" value="메뉴 삭제" class="btn btn-danger" onclick="document.querySelector('#menu-${cur_menu--}-wrapper').remove()">
     `;
     menu_list.appendChild(menu);
     cur_menu++;
