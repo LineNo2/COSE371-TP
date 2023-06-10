@@ -48,7 +48,7 @@ include 'header.php';
   </thead>
   <tbody>
 <?php
-$sql = "SELECT * FROM work_record WHERE emp_no = '$emp_no";
+$sql = "SELECT * FROM work_record WHERE emp_no = $emp_no";
 $result = mysqli_query($conn, $sql);
 $cnt = 0;
 while($row = mysqli_fetch_array($result)){
@@ -67,15 +67,15 @@ while($row = mysqli_fetch_array($result)){
 <input type="hidden" class="form-control" id="emp_no" name="emp_no" value="<?$emp_no?>">
   <div class="mb-3">
     <label for="work_date" class="form-label">일시</label>
-    <input type="date" class="form-control" id="work_start_date" name="work_start_date">
+    <input type="date" class="form-control" id="work_start_date" name="work_start_date" required>
   </div>
   <div class="mb-3">
     <label for="start_time" class="form-label">시작 시간</label>
-    <input type="time" class="form-control" id="start_time" name="start_time">
+    <input type="time" class="form-control" id="start_time" name="start_time" required>
   </div>
   <div class="mb-3">
     <label for="end_time" class="form-label">종료 시간</label>
-    <input type="time" class="form-control" id="end_time" name="end_time">
+    <input type="time" class="form-control" id="end_time" name="end_time" required>
   </div>
   <button type="submit" class="btn btn-primary">근무 시간 추가</button>
 </form>

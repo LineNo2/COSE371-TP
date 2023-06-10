@@ -9,7 +9,7 @@ $result = mysqli_query($conn, $sql);
 if($result){
     echo "<script>alert('근무 추가 완료');history.back();</script>";
 }else{
-    echo "<script>alert('".$work_date."".$start_time."');history.back();</script>";
+    echo "<script>alert('".$work_date."');history.back();</script>";
     echo $work_date;
     echo $start_time;
     echo $end_time;
