@@ -24,6 +24,9 @@
           <a class="nav-link" href="./employee.php">직원</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="./employee_search.php">근무 관리</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="./menu.php">메뉴</a>
         </li>
         <li class="nav-item">

@@ -52,7 +52,7 @@ include 'header.php';
   </div>
   <div class="mb-3">
     <label for="emp_tel" class="form-label">휴대폰번호</label>
-    <input type="tel" class="form-control" id="emp_tel" name="emp_tel" onblur="len(this)" placeholder="휴대폰번호" required>
+    <input type="tel" class="form-control" id="emp_tel" name="emp_tel" onblur="len(this.value)" placeholder="휴대폰번호" required>
   </div>
   <button type="submit" class="btn btn-primary">직원 추가</button>
 </form>
