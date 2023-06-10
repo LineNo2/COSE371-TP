@@ -72,16 +72,7 @@ include 'header.php';
                 return;
             }
             else{
-                var emp_no = prompt("검색 결과가 여러 개입니다. 직원 번호를 입력해주세요.");
-                if(emp_no == null) return;
-                for(var i = 0; i < employee.length; i++) {
-                    if(employee[i].emp_no == emp_no) {
-                        document.getElementById("emp_no").value = employee[i].emp_no;
-                        document.getElementById("employee").value = employee[i].name;
-                        return;
-                    }
-                }
-                alert("해당 직원 번호가 없습니다.");
+                alert("좀 더 정확하게 입력해주세요.");
             }
         }
     };

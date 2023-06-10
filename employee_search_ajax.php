@@ -1,8 +1,9 @@
 <?php
+include 'db.php';
 $keyword = $_GET['keyword'];
-$sql = "SELECT * FROM employee WHERE name LIKE '%$keyword%' OR emp_tel LIKE '%$keyword%'";
+$sql = "SELECT * FROM employee WHERE name LIKE '%$keyword%' OR emp_tel LIKE '%$keyword%';";
 $result = mysqli_query($conn, $sql);
-echo 'employee = [';
+echo $keyword.';employee = [';
 while($row = mysqli_fetch_array($result)){
     echo '{';
     echo 'emp_no: '.$row['emp_no'].',';
