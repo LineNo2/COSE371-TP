@@ -20,12 +20,12 @@ $sql = "SELECT receipt_no FROM receipt ORDER BY receipt_no DESC LIMIT 1;";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
 $receipt_no = $row['receipt_no'];
-
+echo $receipt_no;
 for($i=0;$i<5;$i++){
     if(isset($_POST['menu_no'.$i])){
         $menu_name = $_POST['menu-'.$i];
         $menu_count = $_POST['menu-'.$i.'-count'];
-        $sql = "INSERT INTO made_menu (menu_name, count, receipt_no) VALUES ('$menu_name','$menu_count','$receipt_no')";
+        $sql = "INSERT INTO made_menu (menu_name, count, receipt_no) VALUES ('$menu_name',$menu_count,$receipt_no)";
         $result = mysqli_query($conn, $sql);
         if(!$result){
             echo "<script>alert('Order 저장 실패');history.back();</script>";
@@ -33,7 +33,7 @@ for($i=0;$i<5;$i++){
     }
 }
 
-$sql = "SELECT point FROM receipt NATURAL JOIN made_menu NATURAL JOIN menu_list WHERE receipt_no = '$receipt_no'";
+$sql = "SELECT * FROM receipt NATURAL JOIN made_menu NATURAL JOIN menu_list WHERE receipt_no = '$receipt_no'";
 $result = mysqli_query($conn, $sql);
 if(!$result){
     echo "<script>alert('포인트 계산 실패');history.back();</script>";
