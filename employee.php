@@ -36,9 +36,8 @@ include 'header.php';
 </table>
 <hr>
 <h2>직원 추가</h2>
-//make form with POST method to employee_add.php, and requirements is same to above table
+<!-- make form with POST method to employee_add.php, and requirements is same to above table-->
 <form name="empolyee_add" action="./employee_add.php" method="post">
-    <input type="text" name="emp_no" placeholder="직원번호">
     <input type="text" name="name" placeholder="이름">
     <input type="text" name="date_of_birth" placeholder="생년월일">
     <input type="text" name="gender" placeholder="성별">
