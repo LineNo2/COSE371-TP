@@ -8,6 +8,6 @@ $result = mysqli_query($conn, $sql);
 if($result){
     echo "<script>alert('근무 삭제 완료');history.back();</script>";
 }else{
-    echo "<script>alert('근무 삭제 실패');history.back();</script>";
+    echo "<script>alert('$sql');history.back();</script>";
 }
 ?>
