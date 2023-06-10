@@ -9,7 +9,7 @@ include 'header.php';
     <label for="employee" class="form-label">담당 직원</label>
     <input type="text" class="form-control" id="employee" name="employee" placeholder="담당 직원 검색" required>
     <input type="hidden" class="form-control" id="emp_no" name="emp_no" value="">
-    <input type="button" class="btn btn-secondary" onclick="ajax_search_emp()" value="직원 추가">
+    <input type="button" class="btn btn-success" onclick="ajax_search_emp()" value="직원 추가">
   </div>
   <div class="mb-3">
     <label for="cust_tel" class="form-label">고객 전화번호</label>
@@ -59,6 +59,7 @@ include 'header.php';
 
 <script>
     let employee = [];
+    let menu_list = [];
     let cur_menu = 0;
     function ajax_search_emp() {
     var search = document.getElementById("employee").value;
@@ -97,7 +98,7 @@ function add_menu() {
     menu.innerHTML = `
     <input type="text" class="form-control" id="menu-${cur_menu}" name="menu-${cur_menu}" placeholder="메뉴 이름" required>
     <input type="number" max="10" min="1" class="form-control" id="menu-${cur_menu}-count" name="menu-${cur_menu}-count" placeholder="수량 입력" required>
-    <input type="button" class="btn btn-secondary" onclick="ajax_search_menu(${cur_menu})" value="메뉴 추가">
+    <input type="button" class="btn btn-success" onclick="ajax_search_menu(${cur_menu})" value="메뉴 추가">
     <input type="button" value="메뉴 삭제" class="btn btn-danger" onclick="document.querySelector('menu-${cur_menu}').remove()">
     `;
     menu_list.appendChild(menu);
