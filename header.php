@@ -21,16 +21,16 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/employee.php">직원</a>
+          <a class="nav-link" href="./employee.php">직원</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/menu.php">메뉴</a>
+          <a class="nav-link" href="./menu.php">메뉴</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/customer.php">고객</a>
+          <a class="nav-link" href="./customer.php">고객</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/receipt.php">주문 내역</a>
+          <a class="nav-link" href="./receipt.php">주문 내역</a>
         </li>
     </div>
   </div>
