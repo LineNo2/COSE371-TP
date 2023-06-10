@@ -9,6 +9,6 @@ $result = mysqli_query($conn, $sql);
 if($result){
     echo "<script>alert('근무 추가 완료');history.back();</script>";
 }else{
-    echo "<script>alert('근무 추가 실패');history.back();</script>";
+    echo "<script>alert('".$work_date.$start_time."');history.back();</script>";
 }
 ?>
