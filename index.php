@@ -8,7 +8,7 @@ include 'header.php';
     $sql = "SELECT * FROM `employee`";
     // $result = mysqli_query($conn, $sql);
     echo '왜 안나와요?';
-    echo 'sql';
+    echo $sql;
     // echo $result->num_rows;
     ?>  
 </body>
