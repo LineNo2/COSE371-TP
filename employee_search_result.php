@@ -52,7 +52,6 @@ $sql = "SELECT * FROM work_record WHERE emp_no = '$emp_no";
 $result = mysqli_query($conn, $sql);
 $cnt = 0;
 while($row = mysqli_fetch_array($result)){
-    
     echo '<tr>'.$cnt.'</tr>';
     echo '<td>'.$row['work_begin'].'</td>';
     echo '<td>'.$row['work_end'].'</td>';
@@ -64,10 +63,10 @@ while($row = mysqli_fetch_array($result)){
   </tbody>
 </table>
 <h2>근무시간 추가</h2>
-<!-- make form with POST method to employee_add.php, and requirements is same to above table-->
-<form name="empolyee_add" action="./employee_add.php" method="post">
+<form name="empolyee_add" action="./work_manage_add.php" method="post">
+<input type="hidden" class="form-control" id="emp_no" name="emp_no" value="<?$emp_no?>">
   <div class="mb-3">
-    <label for="work_start_date" class="form-label">일시</label>
+    <label for="work_date" class="form-label">일시</label>
     <input type="date" class="form-control" id="work_start_date" name="work_start_date">
   </div>
   <div class="mb-3">
