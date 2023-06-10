@@ -32,10 +32,8 @@ include 'header.php';
         echo '<td><input type="button" value="삭제" onclick="location.href=`employee_delete.php?emp_no='.$row['emp_no'].'`"></td>';
         echo '</tr>';
     }
-    
-
-    ?>  
-  </tbody>
+    echo `
+    </tbody>
 </table>
 <hr>
 <table class="table">
@@ -47,8 +45,7 @@ include 'header.php';
     </tr>
   </thead>
   <tbody>
-<?php
-$emp_no = $_POST['emp_no'];
+    `;
 $sql = "SELECT * FROM work_record WHERE emp_no = $emp_no";
 $result = mysqli_query($conn, $sql);
 $cnt = 0;
