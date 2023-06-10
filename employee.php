@@ -10,7 +10,6 @@ include 'header.php';
       <th scope="col">#</th>
       <th scope="col">이름</th>
       <th scope="col">생년월일</th>
-      <th scope="col">휴대폰번호</th>
       <th scope="col">성별</th>
       <th scope="col">휴대폰번호</th>
       <th scope="col">삭제</th>
