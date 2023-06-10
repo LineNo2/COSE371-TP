@@ -10,7 +10,6 @@ include 'header.php';
       <th scope="col">#</th>
       <th scope="col">이름</th>
       <th scope="col">생년월일</th>
-      <th scope="col">휴대폰번호</th>
       <th scope="col">성별</th>
       <th scope="col">휴대폰번호</th>
       <th scope="col">삭제</th>
@@ -51,19 +50,19 @@ $sql = "SELECT * FROM work_record WHERE emp_no = $emp_no";
 $result = mysqli_query($conn, $sql);
 $cnt = 0;
 while($row = mysqli_fetch_array($result)){
-    echo '<th scope="row">'.$cnt.'</th>';
+    echo '<tr><th scope="row">'.$cnt.'</th>';
     echo '<td>'.$row['work_begin'].'</td>';
     echo '<td>'.$row['work_end'].'</td>';
     echo '<td><input type="button" value="삭제" onclick="location.href=`work_manage_delete.php?emp_no='.$row['emp_no'].'&work_begin='.$row['work_begin'].'&work_end='.$row['work_end'].'`"></td>';
     echo '</tr>';
     $cnt++;
 }
-?>
+echo '
   </tbody>
 </table>
 <h2>근무시간 추가</h2>
 <form name="empolyee_add" action="./work_manage_add.php" method="post">
-<input type="hidden" class="form-control" id="emp_no" name="emp_no" value="<?$emp_no?>">
+<input type="hidden" class="form-control" id="emp_no" name="emp_no" value="'.$emp_no.'">
   <div class="mb-3">
     <label for="work_date" class="form-label">일시</label>
     <input type="date" class="form-control" id="work_start_date" name="work_start_date" required>
@@ -78,6 +77,6 @@ while($row = mysqli_fetch_array($result)){
   </div>
   <button type="submit" class="btn btn-primary">근무 시간 추가</button>
 </form>
-<?php 
+';
 include 'footer.php'; 
 ?>
