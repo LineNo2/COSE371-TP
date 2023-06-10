@@ -9,7 +9,7 @@ include 'header.php';
     <label for="employee" class="form-label">담당 직원</label>
     <input type="text" class="form-control" id="employee" name="employee" placeholder="담당 직원 검색" required>
     <input type="hidden" class="form-control" id="emp_no" name="emp_no" value="">
-    <input type="button" class="btn btn-secondary" onclick="ajax_search_emp()">직원 추가</input>
+    <input type="button" class="btn btn-secondary" onclick="ajax_search_emp()" value="직원 추가">
   </div>
   <div class="mb-3">
     <label for="cust_tel" class="form-label">고객 전화번호</label>
@@ -18,6 +18,9 @@ include 'header.php';
   <div class="mb-3">
     <label for="cust_tel" class="form-label">메뉴 추가</label>
     <input type="button" value="+" onclick="add_menu()">
+  </div>
+  <div class="mb-3" id="menu-list">
+
   </div>
   <button type="submit" class="btn btn-primary">직원 추가</button>
 </form>
@@ -56,6 +59,7 @@ include 'header.php';
 
 <script>
     let employee = [];
+    let cur_menu = 0;
     function ajax_search_emp() {
     var search = document.getElementById("employee").value;
     var xhttp = new XMLHttpRequest();
@@ -67,8 +71,10 @@ include 'header.php';
                 return;
             }
             else if(employee.length == 1) {
-                document.getElementById("emp_no").value = employee[0].emp_no;
-                document.getElementById("employee").value = employee[0].name;
+                document.getElementById("emp_no").value = `${employee[0].emp_no}`;
+                document.getElementById("employee").value = `${employee[0].name}`;
+                document.getElementById("employee").disabled = true;
+                alert("직원을 추가했습니다.");
                 return;
             }
             else{
@@ -80,8 +86,42 @@ include 'header.php';
     xhttp.send();
 }
 function add_menu() {
-    var menu = document.getElementById("menu").value;
+    let menu_list = document.getElementById("menu-list");
+    let menu = document.createElement("div");
+    menu.setAttribute("class", "mb-3");
+    menu.setAttribute("id", `menu-${cur_menu}`);
+    menu.innerHTML = `
+    <input type="text" class="form-control" id="menu-${cur_menu}" name="menu-${cur_menu}" placeholder="메뉴 이름" required>
+    <input type="number" max="10" min="1" class="form-control" id="menu-${cur_menu}-count" name="menu-${cur_menu}-count" placeholder="수량 입력" required>
+    <input type="button" class="btn btn-secondary" onclick="ajax_search_menu(${cur_menu})" value="메뉴 추가">
+    `;
+    menu_list.appendChild(menu);
+    cur_menu++;
+}
+function ajax_search_menu(cur_menu) {
+    var search = document.getElementById(`menu-${cur_menu}`).value;
     var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) { // readyState == 4 : request finished and response is ready, status == 200 : "OK"
+            eval(this.responseText);
+            if(menu_list.length == 0) {
+                alert("검색 결과가 없습니다.");
+                return;
+            }
+            else if(menu_list.length == 1) {
+                document.getElementById(`menu-${cur_menu}`).value = `${menu_list[0].menu_no}`;
+                document.getElementById(`menu-${cur_menu}`).disabled = true;
+                document.getElementById(`menu-${cur_menu}-count`).value = 1;
+                alert("메뉴를 추가했습니다.");
+                return;
+            }
+            else{
+                alert("좀 더 정확하게 입력해주세요.");
+            }
+        }
+    };
+    xhttp.open("GET", "menu_search_ajax.php?keyword=" + document.getElementById(`menu-${cur_menu}`).value, true);
+    xhttp.send();
 }
     function len(gth) {
     if (gth.substring(3, 4) == '-' && gth.substring(7, 8) == '-') // 123-456-7890
