@@ -47,7 +47,7 @@ include 'header.php';
         echo '<th scope="row">'.$row['receipt_no'].'</th>';
         echo '<td>'.$row['cust_tel'].'</td>';
         echo '<td>'.$row['name'].'</td>';
-        echo '<td>'.$row['oreder_time'].'</td>';
+        echo '<td>'.$row['order_time'].'</td>';
         echo '<td>'.$row['tot'].'</td>';
         echo '<td><input type="button" value="삭제" class="btn btn-danger" onclick="location.href=`receipt_delete.php?receipt_no='.$row['receipt_no'].'`"></td>';
         echo '</tr>';
