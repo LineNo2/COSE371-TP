@@ -1,13 +1,10 @@
 <?php 
-$title = "메인페이지";
+$title = "KU타벅스";
 include 'header.php'; 
 ?>
-    <?php
-    include 'db.php';
-    $sql = "SELECT * FROM `employee`";
-    $result = mysqli_query($conn, $sql);
-    echo mysqli_fetch_array($result);
-    ?>  
+    <h1>Welcome to KU타벅스</h1>
+    <p>커피를 주문하고, 주문 내역을 확인하세요.</p>
+        
 <?php 
 include 'footer.php'; 
 ?>

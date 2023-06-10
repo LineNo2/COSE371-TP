@@ -8,8 +8,8 @@ if($cust_tel == ""){
 // there is no menus total number in parameter, so we have to count to 5 until there is no menu_no.
 $sql = "INSERT INTO customer (cust_tel, point) VALUES ('$cust_tel', 0);";
 $result = mysqli_query($conn, $sql);
-if(!$result){
-    echo "<script>alert('이미 존재하는 고객입니다.');history.back();</script>";
+if($result){
+    echo "<script>alert('새로 등록되는 고객입니다.');history.back();</script>";
 }
 $sql = "INSERT INTO receipt (emp_no, cust_tel, order_time) VALUES ('$emp_no', '$cust_tel', now())";
 $result = mysqli_query($conn, $sql);

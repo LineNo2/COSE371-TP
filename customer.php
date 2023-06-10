@@ -1,5 +1,5 @@
 <?php 
-$title = "메인페이지";
+$title = "KU타벅스";
 include 'header.php'; 
 ?>
     <h1>고객 목록</h1>
