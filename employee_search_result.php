@@ -23,6 +23,7 @@ include 'header.php';
     $sql = "SELECT * FROM `employee` WHERE `name` LIKE '%$employee_info%' OR `emp_tel` LIKE '%$employee_info%'";
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_array($result)){
+        $emp_no = $row['emp_no'];
         echo '<tr>';
         echo '<th scope="row">'.$row['emp_no'].'</th>';
         echo '<td>'.$row['name'].'</td>';
