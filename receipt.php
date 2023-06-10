@@ -94,12 +94,11 @@ function add_menu() {
     let menu_list = document.getElementById("menu-list");
     let menu = document.createElement("div");
     menu.setAttribute("class", "mb-3");
-    menu.setAttribute("id", `menu-${cur_menu}`);
     menu.innerHTML = `
     <input type="text" class="form-control" id="menu-${cur_menu}" name="menu-${cur_menu}" placeholder="메뉴 이름" required>
     <input type="number" max="10" min="1" class="form-control" id="menu-${cur_menu}-count" name="menu-${cur_menu}-count" placeholder="수량 입력" required>
     <input type="button" class="btn btn-success" onclick="ajax_search_menu(${cur_menu})" value="메뉴 추가">
-    <input type="button" value="메뉴 삭제" class="btn btn-danger" onclick="document.querySelector('menu-${cur_menu}').remove()">
+    <input type="button" value="메뉴 삭제" class="btn btn-danger" onclick="document.querySelector('#menu-${cur_menu}').remove()">
     `;
     menu_list.appendChild(menu);
     cur_menu++;
@@ -126,7 +125,7 @@ function ajax_search_menu(cur_menu) {
             }
         }
     };
-    xhttp.open("GET", "menu_search_ajax.php?keyword=" + document.getElementById(`menu-${cur_menu}`).value, true);
+    xhttp.open("GET", "menu_search_ajax.php?keyword=" + document.querySelector(`#menu-${cur_menu} > input`).value, true);
     xhttp.send();
 }
     function len(gth) {
