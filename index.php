@@ -1,16 +1,13 @@
 <?php 
 $title = "메인페이지";
-include 'db.php';
+include 'header.php'; 
 ?>
 <body>
-    <h1>아니 php야 좀 실행을 해봐</h1>
     <?php
-    include 'header.php'; 
+    include 'db.php';
     $sql = "SELECT * FROM `employee`";
-    echo '왜 안나와요?';
-    echo $sql;
     $result = mysqli_query($conn, $sql);
-    echo $result->num_rows;
+    echo mysqli_fetch_array($result);
     ?>  
 </body>
 </html>
