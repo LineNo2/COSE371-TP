@@ -7,7 +7,7 @@ include 'header.php';
 <form name="empolyee_add" action="./receipt_add.php" method="post">
   <div class="mb-3">
     <label for="employee" class="form-label">담당 직원</label>
-    <input type="date" class="form-control" id="employee" name="employee" placeholder="담당 직원 검색" required>
+    <input type="text" class="form-control" id="employee" name="employee" placeholder="담당 직원 검색" required>
     <input type="hidden" class="form-control" id="emp_no" name="emp_no" value="">
     <input type="button" class="btn btn-secondary" onclick="ajax_search_emp()">직원 추가</input>
   </div>
@@ -82,10 +82,9 @@ include 'header.php';
                 }
                 alert("해당 직원 번호가 없습니다.");
             }
-            document.getElementById("employee").value = this.responseText;
         }
     };
-    xhttp.open("GET", "employee_search_ajax.php?keyword=" + "employee", true);
+    xhttp.open("GET", "employee_search_ajax.php?keyword=" + document.getElementById("employee").value, true);
     xhttp.send();
 }
 function add_menu() {
