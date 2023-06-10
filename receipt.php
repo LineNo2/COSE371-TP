@@ -40,7 +40,7 @@ include 'header.php';
   <tbody>
   <?
     include 'db.php';
-    $sql = "SELECT receipt_no, name, emp_no, cust_tel, SUM(menu_tot) as tot FROM receipt  NATURAL JOIN customer  NATURAL JOIN employee NATURAL JOIN ( SELECT price * count as menu_tot, receipt_no FROM menu_list NATURAL JOIN made_menu) as tb1 GROUP BY receipt_no;";
+    $sql = "SELECT receipt_no, name, emp_no, order_time, cust_tel, SUM(menu_tot) as tot FROM receipt  NATURAL JOIN customer  NATURAL JOIN employee NATURAL JOIN ( SELECT price * count as menu_tot, receipt_no FROM menu_list NATURAL JOIN made_menu) as tb1 GROUP BY receipt_no;";
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_array($result)){
         echo '<tr>';
