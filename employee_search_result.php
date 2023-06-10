@@ -54,7 +54,7 @@ while($row = mysqli_fetch_array($result)){
     echo '<th scope="row">'.$cnt.'</th>';
     echo '<td>'.$row['work_begin'].'</td>';
     echo '<td>'.$row['work_end'].'</td>';
-    echo '<td><input type="button" value="삭제" onclick="location.href=`work_manage_delete.php?emp_no='.$row['emp_no'].'work_begin='.$row['work_begin'].'work_end='.$row['work_end'].'`"></td>';
+    echo '<td><input type="button" value="삭제" onclick="location.href=`work_manage_delete.php?emp_no='.$row['emp_no'].'&work_begin='.$row['work_begin'].'&work_end='.$row['work_end'].'`"></td>';
     echo '</tr>';
     $cnt++;
 }
