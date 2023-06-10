@@ -117,7 +117,7 @@ function ajax_search_menu(cur_menu) {
                 document.getElementById(`menu-${cur_menu}`).value = `${menu_list[0].name}`;
                 document.getElementById(`menu-${cur_menu}`).disabled = true;
                 document.getElementById(`menu-${cur_menu}-count`).value = 1;
-                document.querySelector(`menu-${cur_menu}-wrapper`).innerHTML += `<input type="button" value="메뉴 삭제" class="btn btn-danger" onclick="document.querySelector('#menu-${cur_menu--}-wrapper').remove()">`
+                document.querySelector(`#menu-${cur_menu}-wrapper`).innerHTML += `<input type="button" value="메뉴 삭제" class="btn btn-danger" onclick="document.querySelector('#menu-${cur_menu--}-wrapper').remove()">`
                 alert("메뉴를 추가했습니다.");
                 return;
             }
