@@ -6,10 +6,10 @@ include 'header.php';
     <h1>아니 php야 좀 실행을 해봐</h1>
     <?php
     $sql = "SELECT * FROM `employee`";
-    $result = mysqli_query($conn, $sql);
-    echo $result;
+    // $result = mysqli_query($conn, $sql);
     echo '왜 안나와요?';
-    echo $result->num_rows;
+    echo 'sql';
+    // echo $result->num_rows;
     ?>  
 </body>
 </html>
