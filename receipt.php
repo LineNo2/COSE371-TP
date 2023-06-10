@@ -30,9 +30,9 @@ include 'header.php';
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">주문일시</th>
-      <th scope="col">담당 직원</th>
       <th scope="col">고객</th>
+      <th scope="col">담당 직원</th>
+      <th scope="col">주문일시</th>
       <th scope="col">결제 총액</th>
       <th scope="col">삭제</th>
     </tr>
@@ -45,9 +45,9 @@ include 'header.php';
     while($row = mysqli_fetch_array($result)){
         echo '<tr>';
         echo '<th scope="row">'.$row['receipt_no'].'</th>';
-        echo '<td>'.$row['name'].'</td>';
-        echo '<td>'.$row['emp_no'].'</td>';
         echo '<td>'.$row['cust_tel'].'</td>';
+        echo '<td>'.$row['name'].'</td>';
+        echo '<td>'.$row['oreder_time'].'</td>';
         echo '<td>'.$row['tot'].'</td>';
         echo '<td><input type="button" value="삭제" class="btn btn-danger" onclick="location.href=`receipt_delete.php?receipt_no='.$row['receipt_no'].'`"></td>';
         echo '</tr>';
