@@ -6,7 +6,7 @@ $result = mysqli_query($conn, $sql);
 echo 'menu_list = [';
 while($row = mysqli_fetch_array($result)){
     echo '{';
-    echo 'name: "'.$row['name'].'",';
+    echo 'name: "'.$row['menu_name'].'",';
     echo '},';
 }
 echo '];';
