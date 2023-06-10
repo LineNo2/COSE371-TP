@@ -21,7 +21,7 @@ $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
 $receipt_no = $row['receipt_no'];
 echo $receipt_no;
-for($i=0;$i<5;$i++){
+for($i=0;$i<10;$i++){
     if(isset($_POST['menu-'.$i])){
         echo 'menu-'.$i.' is set';
         $menu_name = $_POST['menu-'.$i];
