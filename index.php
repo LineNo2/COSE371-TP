@@ -9,7 +9,7 @@ include 'db.php';
     $sql = "SELECT * FROM `employee`";
     echo '왜 안나와요?';
     echo $sql;
-    $result = mysqli_query($conn, $sql);
+    $result = $mysqli->query($conn, $sql);
     echo $result->num_rows;
     ?>  
 </body>
