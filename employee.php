@@ -51,25 +51,10 @@ include 'header.php';
   </div>
   <div class="mb-3">
     <label for="emp_tel" class="form-label">휴대폰번호</label>
-    <input type="tel" class="form-control" id="emp_tel" name="emp_tel" onblur="len(this.value)" placeholder="휴대폰번호" required>
+    <input type="tel" class="form-control" id="emp_tel" name="emp_tel" placeholder="휴대폰번호" required>
   </div>
   <button type="submit" class="btn btn-primary">직원 추가</button>
 </form>
-<script>
-    function len(gth) {
-    if (gth.substring(3, 4) == '-' && gth.substring(7, 8) == '-') // 123-456-7890
-        gth = gth.replace('-', '').replace('-', '');
-    else if (gth.substring(0, 1) == '(' && gth.substring(4, 5) == ')' && gth.substring(8, 9) == '-') // (123)456-7890
-        gth = gth.replace('(', '').replace(')', '').replace('-', '');
-    else if (gth.substring(0, 1) == '(' && gth.substring(4, 5) == ')') // (123)4567890
-        gth = gth.replace('(', '').replace(')', '');        
-    
-    if (!isNaN(gth) && gth.length == 10) {
-        return true;
-    }
-    alert("전화번호의 길이는 12자리입니다.");
-}
-</script>
 <?php 
 include 'footer.php'; 
 ?>
