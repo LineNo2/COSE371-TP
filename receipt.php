@@ -20,9 +20,8 @@ include 'header.php';
     <input type="button" value="+" onclick="add_menu()">
   </div>
   <div class="mb-3" id="menu-list">
-
   </div>
-  <button type="submit" class="btn btn-primary">직원 추가</button>
+  <button type="submit" class="btn btn-primary">주문 추가</button>
 </form>
 <hr>
 <h2>주문 내역</h2>
@@ -94,11 +93,12 @@ function add_menu() {
     let menu_list = document.getElementById("menu-list");
     let menu = document.createElement("div");
     menu.setAttribute("class", "mb-3");
+    menu.setAttribute("id", `menu-${cur_menu}-wrapper`);
     menu.innerHTML = `
     <input type="text" class="form-control" id="menu-${cur_menu}" name="menu-${cur_menu}" placeholder="메뉴 이름" required>
     <input type="number" max="10" min="1" class="form-control" id="menu-${cur_menu}-count" name="menu-${cur_menu}-count" placeholder="수량 입력" required>
     <input type="button" class="btn btn-success" onclick="ajax_search_menu(${cur_menu})" value="메뉴 추가">
-    <input type="button" value="메뉴 삭제" class="btn btn-danger" onclick="document.querySelector('#menu-${cur_menu}').remove()">
+    <input type="button" value="메뉴 삭제" class="btn btn-danger" onclick="document.querySelector('#menu-${cur_menu}-wrapper').remove()">
     `;
     menu_list.appendChild(menu);
     cur_menu++;
