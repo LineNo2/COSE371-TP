@@ -86,6 +86,10 @@ include 'header.php';
     xhttp.send();
 }
 function add_menu() {
+    if(cur_menu > 5){
+        alert('메뉴는 5개까지만 추가할 수 있습니다.');
+        return;
+    }
     let menu_list = document.getElementById("menu-list");
     let menu = document.createElement("div");
     menu.setAttribute("class", "mb-3");
@@ -94,6 +98,7 @@ function add_menu() {
     <input type="text" class="form-control" id="menu-${cur_menu}" name="menu-${cur_menu}" placeholder="메뉴 이름" required>
     <input type="number" max="10" min="1" class="form-control" id="menu-${cur_menu}-count" name="menu-${cur_menu}-count" placeholder="수량 입력" required>
     <input type="button" class="btn btn-secondary" onclick="ajax_search_menu(${cur_menu})" value="메뉴 추가">
+    <input type="button" value="메뉴 삭제" class="btn btn-danger" onclick="document.querySelector('menu-${cur_menu}').remove()">
     `;
     menu_list.appendChild(menu);
     cur_menu++;
