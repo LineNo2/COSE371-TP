@@ -48,6 +48,7 @@ include 'header.php';
   </thead>
   <tbody>
 <?php
+$emp_no = $_POST['emp_no'];
 $sql = "SELECT * FROM work_record WHERE emp_no = $emp_no";
 $result = mysqli_query($conn, $sql);
 $cnt = 0;
