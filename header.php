@@ -14,6 +14,12 @@
     background-color: #dc143c;
     color: #C5B9AC;
   }
+  .bg-korea{
+    background-color: #dc143c;
+  }
+  .nav-link{
+    color: #C5B9AC;
+  }
   </style>
 <body>
 <nav class="navbar navbar-expand-lg navbar-korea bg-korea">
