@@ -102,6 +102,7 @@ function add_menu() {
     `;
     menu_list.appendChild(menu);
 }
+add_menu()
 function ajax_search_menu(cur_menu, callback) {
     var search = document.getElementById(`menu-${cur_menu}`).value;
     var xhttp = new XMLHttpRequest();
