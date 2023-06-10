@@ -33,14 +33,14 @@ include 'header.php';
       <th scope="col">주문일시</th>
       <th scope="col">담당 직원</th>
       <th scope="col">고객</th>
-      <th scope="col">고객 포인트</th>
+      <th scope="col">결제 총액</th>
       <th scope="col">삭제</th>
     </tr>
   </thead>
   <tbody>
   <?
     include 'db.php';
-    $sql = "SELECT * FROM receipt NATURAL JOIN employee NATURAL JOIN customer ";
+    $sql = "SELECT receipt_no, name, emp_no, cust_tel, SUM(menu_tot) as tot FROM receipt  NATURAL JOIN customer  NATURAL JOIN employee NATURAL JOIN ( SELECT price * count as menu_tot, receipt_no FROM menu_list NATURAL JOIN made_menu) as tb1 GROUP BY receipt_no;";
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_array($result)){
         echo '<tr>';
@@ -48,7 +48,7 @@ include 'header.php';
         echo '<td>'.$row['name'].'</td>';
         echo '<td>'.$row['emp_no'].'</td>';
         echo '<td>'.$row['cust_tel'].'</td>';
-        echo '<td>'.$row['point'].'</td>';
+        echo '<td>'.$row['tot'].'</td>';
         echo '<td><input type="button" value="삭제" class="btn btn-danger" onclick="location.href=`receipt_delete.php?receipt_no='.$row['receipt_no'].'`"></td>';
         echo '</tr>';
     }
