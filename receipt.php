@@ -98,11 +98,11 @@ function add_menu() {
     menu.innerHTML = `
     <input type="text" class="form-control" id="menu-${cur_menu}" name="menu-${cur_menu}" placeholder="메뉴 이름" required>
     <input type="number" max="10" min="1" class="form-control" id="menu-${cur_menu}-count" name="menu-${cur_menu}-count" placeholder="수량 입력" required>
-    <input type="button" class="btn btn-success" onclick="ajax_search_menu(${cur_menu});this.setAttribute('disabled',true);" value="메뉴 추가">
+    <input type="button" class="btn btn-success" onclick="ajax_search_menu(${cur_menu}, () => {this.setAttribute('disabled',true)});" value="메뉴 추가">
     `;
     menu_list.appendChild(menu);
 }
-function ajax_search_menu(cur_menu) {
+function ajax_search_menu(cur_menu, callback) {
     var search = document.getElementById(`menu-${cur_menu}`).value;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -110,15 +110,14 @@ function ajax_search_menu(cur_menu) {
             eval(this.responseText);
             if(menu_list.length == 0) {
                 alert("검색 결과가 없습니다.");
-                return;
             }
             else if(menu_list.length == 1) {
                 document.getElementById(`menu-${cur_menu}`).value = menu_list[0].name;
                 document.getElementById(`menu-${cur_menu}`).disabled = true;
                 document.getElementById(`menu-${cur_menu}-count`).value = 1;
                 document.querySelector(`#menu-${cur_menu}-wrapper`).insertAdjacentHTML("beforeend", `<input type="button" value="메뉴 삭제" class="btn btn-danger" onclick="document.querySelector('#menu-${cur_menu--}-wrapper').remove()">`);
+                callback();
                 alert("메뉴를 추가했습니다.");
-                return;
             }
             else{
                 alert("좀 더 정확하게 입력해주세요.");
