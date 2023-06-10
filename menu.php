@@ -39,7 +39,7 @@ include 'header.php';
     <label for="price" class="form-label">가격</label>
     <input type="int" class="form-control" id="price" name="price" placeholder="생년월일">
   </div>
-  <button type="submit" class="btn btn-primary">직원 추가</button>
+  <button type="submit" class="btn btn-primary">메뉴 추가</button>
 </form>
 <?php 
 include 'footer.php'; 

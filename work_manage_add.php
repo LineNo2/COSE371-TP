@@ -1,15 +1,14 @@
 <?php
 include 'db.php';
 $emp_no = $_POST['emp_no'];
-$name = $_POST['name'];
-$date_of_birth = $_POST['date_of_birth'];
-$gender = $_POST['gender'];
-$emp_tel = $_POST['emp_tel'];
-$sql = "INSERT INTO `employee` (`emp_no`, `name`, `date_of_birth`, `gender`, `emp_tel`) VALUES ('$emp_no', '$name', '$date_of_birth', '$gender', '$emp_tel')";
+$work_date = $_POST['work_date'];
+$start_time = $_POST['start_time'];
+$end_time = $_POST['end_time'];
+$sql = "INSERT INTO work_record (emp_no, work_begin, work_end) VALUES ($emp_no, '$work_date $start_time:00', '$work_date $end_time:00')";
 $result = mysqli_query($conn, $sql);
 if($result){
-    echo "<script>alert('직원 추가 완료');location.href='employee.php';</script>";
+    echo "<script>alert('근무 추가 완료. 화면을 새로고침 해주세요.');location.href='menu.php';</script>";
 }else{
-    echo "<script>alert('직원 추가 실패');history.back();</script>";
+    echo "<script>alert('근무 추가 실패');history.back();</script>";
 }
 ?>
