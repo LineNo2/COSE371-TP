@@ -98,7 +98,7 @@ function add_menu() {
     <input type="text" class="form-control" id="menu-${cur_menu}" name="menu-${cur_menu}" placeholder="메뉴 이름" required>
     <input type="number" max="10" min="1" class="form-control" id="menu-${cur_menu}-count" name="menu-${cur_menu}-count" placeholder="수량 입력" required>
     <input type="button" class="btn btn-success" onclick="ajax_search_menu(${cur_menu})" value="메뉴 추가">
-    <input type="button" value="메뉴 삭제" class="btn btn-danger" onclick="document.querySelector('#menu-${cur_menu}-wrapper').remove()">
+    <input type="button" value="메뉴 삭제" class="btn btn-danger" onclick="document.querySelector('#menu-${cur_menu--}-wrapper').remove()">
     `;
     menu_list.appendChild(menu);
     cur_menu++;
@@ -114,7 +114,7 @@ function ajax_search_menu(cur_menu) {
                 return;
             }
             else if(menu_list.length == 1) {
-                document.getElementById(`menu-${cur_menu}`).value = `${menu_list[0].menu_no}`;
+                document.getElementById(`menu-${cur_menu}`).value = `${menu_list[0].name}`;
                 document.getElementById(`menu-${cur_menu}`).disabled = true;
                 document.getElementById(`menu-${cur_menu}-count`).value = 1;
                 alert("메뉴를 추가했습니다.");
