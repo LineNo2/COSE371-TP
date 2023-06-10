@@ -27,7 +27,7 @@ include 'header.php';
         echo '<td>'.$row['date_of_birth'].'</td>';
         echo '<td>'.$row['gender'].'</td>';
         echo '<td>'.$row['emp_tel'].'</td>';
-        echo '<td><input type="button" value="삭제" onclick="location.href=`employee_delete.php?emp_no='.$row['emp_no'].'`"></td>';
+        echo '<td><input type="button" value="삭제" class="btn btn-danger" onclick="location.href=`employee_delete.php?emp_no='.$row['emp_no'].'`"></td>';
         echo '</tr>';
     }
     ?>  

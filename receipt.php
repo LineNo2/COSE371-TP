@@ -13,7 +13,7 @@ include 'header.php';
   </div>
   <div class="mb-3">
     <label for="cust_tel" class="form-label">고객 전화번호</label>
-    <input type="text" class="form-control" id="cust_tel" onblur="len(this.value)"  name="cust_tel" placeholder="전화번호 입력">
+    <input type="text" class="form-control" id="cust_tel"  name="cust_tel" placeholder="전화번호 입력">
   </div>
   <div class="mb-3">
     <label for="cust_tel" class="form-label">메뉴 추가</label>
@@ -44,12 +44,12 @@ include 'header.php';
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_array($result)){
         echo '<tr>';
-        echo '<th scope="row">'.$row['emp_no'].'</th>';
+        echo '<th scope="row">'.$row['receipt_no'].'</th>';
         echo '<td>'.$row['name'].'</td>';
-        echo '<td>'.$row['date_of_birth'].'</td>';
-        echo '<td>'.$row['gender'].'</td>';
-        echo '<td>'.$row['emp_tel'].'</td>';
-        echo '<td><input type="button" value="삭제" onclick="location.href=`employee_delete.php?emp_no='.$row['emp_no'].'`"></td>';
+        echo '<td>'.$row['emp_no'].'</td>';
+        echo '<td>'.$row['cust_tel'].'</td>';
+        echo '<td>'.$row['point'].'</td>';
+        echo '<td><input type="button" value="삭제" class="btn btn-danger" onclick="location.href=`recepit_delete.php?emp_no='.$row['receipt_no'].'`"></td>';
         echo '</tr>';
     }
     ?>  
@@ -127,19 +127,6 @@ function ajax_search_menu(cur_menu) {
     };
     xhttp.open("GET", "menu_search_ajax.php?keyword=" + document.querySelector(`#menu-${cur_menu}`).value, true);
     xhttp.send();
-}
-    function len(gth) {
-    if (gth.substring(3, 4) == '-' && gth.substring(7, 8) == '-') // 123-456-7890
-        gth = gth.replace('-', '').replace('-', '');
-    else if (gth.substring(0, 1) == '(' && gth.substring(4, 5) == ')' && gth.substring(8, 9) == '-') // (123)456-7890
-        gth = gth.replace('(', '').replace(')', '').replace('-', '');
-    else if (gth.substring(0, 1) == '(' && gth.substring(4, 5) == ')') // (123)4567890
-        gth = gth.replace('(', '').replace(')', '');        
-    
-    if (!isNaN(gth) && gth.length == 10) {
-        return true;
-    }
-    alert("전화번호의 길이는 12자리입니다.");
 }
 </script>
 <?php 

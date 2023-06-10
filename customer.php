@@ -9,6 +9,7 @@ include 'header.php';
     <tr>
       <th scope="col">고객 전화번호</th>
       <th scope="col">포인트</th>
+      <th scope="col">삭제</th>
     </tr>
   </thead>
   <tbody>
@@ -20,7 +21,7 @@ include 'header.php';
         echo '<tr>';
         echo '<th scope="row">'.$row['cust_tel'].'</th>';
         echo '<td>'.$row['point'].'</td>';
-        echo '<td><input type="button" value="삭제" onclick="location.href=`customer_delete.php?cust_tel='.$row['cust_tel'].'`"></td>';
+        echo '<td><input type="button" value="삭제" class="btn btn-danger" onclick="location.href=`customer_delete.php?cust_tel='.$row['cust_tel'].'`"></td>';
         echo '</tr>';
     }
     ?>  
