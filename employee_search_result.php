@@ -51,6 +51,7 @@ include 'header.php';
 $sql = "SELECT * FROM work_record WHERE emp_no = $emp_no";
 $result = mysqli_query($conn, $sql);
 $cnt = 0;
+echo $cnt;
 while($row = mysqli_fetch_array($result)){
     echo '<tr>'.$cnt.'</tr>';
     echo '<td>'.$row['work_begin'].'</td>';
@@ -59,6 +60,7 @@ while($row = mysqli_fetch_array($result)){
     echo '</tr>';
     $cnt++;
 }
+echo $cnt;
 ?>
   </tbody>
 </table>
