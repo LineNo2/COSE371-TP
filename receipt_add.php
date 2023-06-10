@@ -10,7 +10,7 @@ $result = mysqli_query($conn, $sql);
 if(!$result){
     echo "<script>alert('이미 존재하는 고객입니다.');history.back();</script>";
 }
-$sql = "INSERT INTO receipt (emp_no, cust_tel, datetime) VALUES ('$emp_no', '$cust_tel', now())";
+$sql = "INSERT INTO receipt (emp_no, cust_tel, order_time) VALUES ('$emp_no', '$cust_tel', now())";
 $result = mysqli_query($conn, $sql);
 //exception handler
 if(!$result){
