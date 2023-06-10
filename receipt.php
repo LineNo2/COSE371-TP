@@ -114,7 +114,7 @@ function ajax_search_menu(cur_menu, callback) {
             }
             else if(menu_list.length == 1) {
                 document.getElementById(`menu-${cur_menu}`).value = menu_list[0].name;
-                document.getElementById(`menu-${cur_menu}`).readonly = true;
+                document.getElementById(`menu-${cur_menu}`).setAttribute('readonly', true);
                 document.getElementById(`menu-${cur_menu}-count`).value = 1;
                 document.querySelector(`#menu-${cur_menu}-wrapper`).insertAdjacentHTML("beforeend", `<input type="button" value="메뉴 삭제" class="btn btn-danger" onclick="document.querySelector('#menu-${cur_menu--}-wrapper').remove()">`);
                 callback();
