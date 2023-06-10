@@ -119,7 +119,7 @@ function ajax_search_menu(cur_menu) {
                 document.querySelector(`#menu-${cur_menu}-wrapper`).insertAdjacentHTML("beforeend", `<input type="button" value="메뉴 삭제" class="btn btn-danger" onclick="document.querySelector('#menu-${cur_menu--}-wrapper').remove()">`);
                 setTimeout(() => {
                 document.querySelector(`input[onclick="ajax_search_menu(${cur_menu})"]`).setAttribute('disabled', true);
-                }, 1);
+                }, 100);
                 alert("메뉴를 추가했습니다.");
                 return;
             }
