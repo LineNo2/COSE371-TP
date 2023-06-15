@@ -5,11 +5,13 @@ include 'header.php';
 <h2>매출 분석</h2>
 <h3>담당 직원별 매출 분석</h3>
 <p>주문을 담당한 직원을 확인하세요</p>
+<form>
   <div class="mb-3">
     <label for="employee_info" class="form-label">직원 정보</label>
-    <input type="text" class="form-control" id="employee" name="employee" placeholder="직원 이름, 전화번호, 직원 번호.. ">
+    <input type="text" class="form-control" id="employee" name="employee" placeholder="직원 이름, 전화번호, 직원 번호.. " required>
     <input type="button" class="btn btn-success" onclick="ajax_search_emp()" value="직원 검색">
   </div>
+</form>
 <h3>고객별 매출 분석</h3>
 <p>주문한 고객별 매출을 확인하세요</p>
   <div class="mb-3">
@@ -20,6 +22,10 @@ include 'header.php';
 <h3>시간대 매출 분석</h3>
 <p>특정 시간대 사이에 발생한 매출을 확인하세요</p>
 <form action="./profit_analysis_result.php" method="get">
+<div class="mb-3">
+    <label for="work_date" class="form-label">일시</label>
+    <input type="date" class="form-control" id="work_date" name="work_date" required>
+  </div>
 <div class="mb-3">
     <label for="start_time" class="form-label">시작 시간</label>
     <input type="time" class="form-control" id="start_time" name="start_time" required>

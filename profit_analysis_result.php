@@ -26,7 +26,8 @@ include 'header.php';
         $sql = $sql." HAVING cust_tel = '".$_GET['cust_tel']."'";
     }
     else if($_GET['start_time'] && $_GET['end_time']){
-        $sql = $sql." HAVING order_time BETWEEN '".$_GET['start_time']."' AND '".$_GET['end_time']."'";
+        // $sql = $sql." HAVING order_time BETWEEN '".$_GET['start_time']."' AND '".$_GET['end_time']."'";
+        $sql = $sql." HAVING order_time BETWEEN '".$_GET['work_date']." ".$_GET['start_time'].":00' AND '".$_GET['work_date']." ".$_GET['end_time'].":00'";
     }
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_array($result)){
