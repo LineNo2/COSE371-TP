@@ -43,6 +43,10 @@ include 'header.php';
   function ajax_search_emp() {
     var search = document.getElementById("employee").value;
     var xhttp = new XMLHttpRequest();
+    if(search == "") {
+        alert("검색어를 입력해 주세요.");
+        return;
+    }
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) { // readyState == 4 : request finished and response is ready, status == 200 : "OK"
             eval(this.responseText);
