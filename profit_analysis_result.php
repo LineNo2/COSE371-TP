@@ -30,6 +30,7 @@ include 'header.php';
         $sql = $sql." HAVING order_time BETWEEN '".$_GET['work_date']." ".$_GET['start_time'].":00' AND '".$_GET['work_date']." ".$_GET['end_time'].":00'";
     }
     $result = mysqli_query($conn, $sql);
+    $totals = 0;
     while($row = mysqli_fetch_array($result)){
         echo '<tr>';
         echo '<th scope="row">'.$row['receipt_no'].'</th>';
@@ -39,17 +40,15 @@ include 'header.php';
         echo '<td>'.$row['tot'].'</td>';
         echo '<td><input type="button" value="삭제" class="btn btn-danger" onclick="location.href=`receipt_delete.php?receipt_no='.$row['receipt_no'].'`"></td>';
         echo '</tr>';
+        $totals += $row['tot'];
     }
     // total profit
-    $sql = "SELECT SUM(menu_tot) as tot FROM receipt NATURAL JOIN ( SELECT price * count as menu_tot, receipt_no FROM menu_list NATURAL JOIN made_menu) as tb1";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result);
     echo '<tr>';
     echo '<th scope="row">총 수익</th>';
     echo '<td></td>';
     echo '<td></td>';
     echo '<td></td>';
-    echo '<td>'.$row['tot'].'</td>';
+    echo '<td>'.$totals.'</td>';
     echo '<td></td>';
     echo '</tr>';
     ?>  
