@@ -18,8 +18,8 @@ include 'header.php';
   <tbody>
   <?
     include 'db.php';
-    $employee_info = $_POST['employee_info'];
-    $sql = "SELECT * FROM `employee` WHERE `name` LIKE '%$employee_info%' OR `emp_tel` LIKE '%$employee_info%'";
+    $employee_info = $_GET['emp_no'];
+    $sql = "SELECT * FROM `employee` WHERE emp_no = $employee_info";
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_array($result)){
         $emp_no = $row['emp_no'];
@@ -29,7 +29,6 @@ include 'header.php';
         echo '<td>'.$row['date_of_birth'].'</td>';
         echo '<td>'.$row['gender'].'</td>';
         echo '<td>'.$row['emp_tel'].'</td>';
-        echo '<td><input type="button" value="삭제" onclick="location.href=`employee_delete.php?emp_no='.$row['emp_no'].'`"></td>';
         echo '</tr>';
     }
     echo '

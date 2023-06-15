@@ -8,8 +8,7 @@ include 'header.php';
   <div class="mb-3">
     <label for="employee_info" class="form-label">직원 정보</label>
     <input type="text" class="form-control" id="employee" name="employee" placeholder="직원 이름, 전화번호.. " required>
-    <input type="hidden" class="form-control" id="emp_no" name="emp_no" value="">
-    <input type="button" class="btn btn-success" onclick="ajax_search_emp()" value="직원 추가">
+    <input type="button" class="btn btn-success" onclick="ajax_search_emp()" value="직원 검색">
   </div>
   <button type="submit" class="btn btn-primary">검색</button>
 </form>
@@ -27,10 +26,9 @@ include 'header.php';
                 return;
             }
             else if(employee.length == 1) {
-                document.getElementById("emp_no").value = `${employee[0].emp_no}`;
                 document.getElementById("employee").value = `${employee[0].name}`;
                 document.getElementById("employee").disabled = true;
-                alert("직원을 추가했습니다.");
+                location.href = "employee_search_result.php?emp_no=" + employee[0].emp_no;
                 return;
             }
             else{
