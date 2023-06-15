@@ -33,11 +33,11 @@ include 'header.php';
 <form name="menu_add" action="./menu_add.php" method="post">
   <div class="mb-3">
     <label for="menu_name" class="form-label">메뉴 이름</label>
-    <input type="text" class="form-control" id="menu_name" name="menu_name" placeholder="이름" required>
+    <input type="text" class="form-control" id="menu_name" name="menu_name" placeholder="메뉴명" required>
   </div>
   <div class="mb-3">
     <label for="price" class="form-label">가격</label>
-    <input type="int" class="form-control" id="price" name="price" placeholder="생년월일">
+    <input type="int" class="form-control" id="price" name="price" placeholder="가격">
   </div>
   <button type="submit" class="btn btn-primary">메뉴 추가</button>
 </form>
