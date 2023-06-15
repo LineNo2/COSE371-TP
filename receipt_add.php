@@ -6,6 +6,9 @@ if($cust_tel == ""){
     echo "<script>alert('고객 전화번호를 입력해주세요.');history.back();</script>";
 }
 // there is no menus total number in parameter, so we have to count to 5 until there is no menu_no.
+mysqli_query($conn, “set autocommit = 0”);
+mysqli_query($conn, “set session transaction isolation level serializable”);
+mysqli_query($conn, “begin”);
 $sql = "INSERT INTO customer (cust_tel, point) VALUES ('$cust_tel', 0);";
 $result = mysqli_query($conn, $sql);
 if($result){
@@ -16,6 +19,7 @@ $result = mysqli_query($conn, $sql);
 //exception handler
 if(!$result){
     echo "<script>alert('주문 추가 실패');history.back();</script>";
+    mysqli_query($conn, “rollback”); 
 }
 $sql = "SELECT receipt_no FROM receipt ORDER BY receipt_no DESC LIMIT 1;";
 $result = mysqli_query($conn, $sql);
@@ -31,6 +35,8 @@ for($i=0;$i<10;$i++){
         $result = mysqli_query($conn, $sql);
         if(!$result){
             echo "<script>alert('Order 저장 실패');history.back();</script>";
+            mysqli_query($conn, “rollback”); 
+
         }
     }
 }
@@ -39,6 +45,7 @@ $sql = "SELECT * FROM receipt NATURAL JOIN made_menu NATURAL JOIN menu_list WHER
 $result = mysqli_query($conn, $sql);
 if(!$result){
     echo "<script>alert('포인트 계산 실패');history.back();</script>";
+    mysqli_query($conn, “rollback”); 
 }
 $point = 0;
 while($row = mysqli_fetch_array($result)){
@@ -48,6 +55,9 @@ $sql = "UPDATE customer SET point = point + '$point' WHERE cust_tel = '$cust_tel
 $result = mysqli_query($conn, $sql);
 if(!$result){
     echo "<script>alert('포인트 적립 실패');history.back();</script>";
+    mysqli_query($conn, “rollback”); 
 }
 echo "<script>alert('포인트 적립 완료! +$point !');location.href='receipt.php';</script>";
+mysqli_query($conn, “commit”);
+mysqli_close($conn);
 ?>
