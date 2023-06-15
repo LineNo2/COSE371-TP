@@ -6,9 +6,9 @@ if($cust_tel == ""){
     echo "<script>alert('고객 전화번호를 입력해주세요.');history.back();</script>";
 }
 // there is no menus total number in parameter, so we have to count to 5 until there is no menu_no.
-mysqli_query($conn, “set autocommit = 0”);
-mysqli_query($conn, “set session transaction isolation level serializable”);
-mysqli_query($conn, “begin”);
+mysqli_query($conn, "set autocommit = 0");
+mysqli_query($conn, "set session transaction isolation level serializable");
+mysqli_query($conn, "begin");
 $sql = "INSERT INTO customer (cust_tel, point) VALUES ('$cust_tel', 0);";
 $result = mysqli_query($conn, $sql);
 if($result){
