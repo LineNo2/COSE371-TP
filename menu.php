@@ -41,6 +41,9 @@ include 'header.php';
   </div>
   <button type="submit" class="btn btn-primary">메뉴 추가</button>
 </form>
+<script>
+  alert('음료 가격이 변경될 경우, 음료명 뒤에 (가격)을 붙여주세요.')
+  </script>
 <?php 
 include 'footer.php'; 
 ?>

@@ -38,6 +38,7 @@ include 'header.php';
 <table class="table">
   <thead>
     <tr>
+      <th scope="col">#</th>
       <th scope="col">시작 일시</th>
       <th scope="col">종료 일시</th>
       <th scope="col">삭제</th>
