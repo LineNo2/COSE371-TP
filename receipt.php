@@ -7,7 +7,7 @@ include 'header.php';
 <form name="receipt_add" action="./receipt_add.php" method="post">
   <div class="mb-3">
     <label for="employee" class="form-label">담당 직원</label>
-    <input type="text" class="form-control" id="employee" name="employee" placeholder="담당 직원 검색" required>
+    <input type="text" class="form-control" id="employee" name="employee" placeholder="직원 이름, 전화번호.. " required>
     <input type="hidden" class="form-control" id="emp_no" name="emp_no" value="">
     <input type="button" class="btn btn-success" onclick="ajax_search_emp()" value="직원 추가">
   </div>
@@ -94,7 +94,7 @@ include 'header.php';
                 return;
             }
             else{
-                alert("좀 더 정확하게 입력해주세요.");
+                alert("검색 결과가 여러개 입니다. 조금 더 구체적으로 입력해 주세요.");
             }
         }
     };
