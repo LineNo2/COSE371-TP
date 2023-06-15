@@ -56,6 +56,9 @@
         <li class="nav-item">
           <a class="nav-link" href="./receipt.php">주문 내역</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./profit_analysis.php">매출 분석</a>
+        </li>
     </div>
   </div>
 </nav> 

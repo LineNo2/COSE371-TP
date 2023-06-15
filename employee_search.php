@@ -7,10 +7,9 @@ include 'header.php';
     <form action="employee_search_result.php" method="POST">
   <div class="mb-3">
     <label for="employee_info" class="form-label">직원 정보</label>
-    <input type="text" class="form-control" id="employee" name="employee" placeholder="직원 이름, 전화번호.. " required>
+    <input type="text" class="form-control" id="employee" name="employee" placeholder="직원 이름, 전화번호, 직원 번호.. " required>
     <input type="button" class="btn btn-success" onclick="ajax_search_emp()" value="직원 검색">
   </div>
-  <button type="submit" class="btn btn-primary">검색</button>
 </form>
 
 <script>
