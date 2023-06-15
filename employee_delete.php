@@ -6,6 +6,6 @@ $result = mysqli_query($conn, $sql);
 if($result){
     echo "<script>alert('직원 삭제 완료');location.href='employee.php';</script>";
 }else{
-    echo "<script>alert('직원 삭제 실패');history.back();</script>";
+    echo "<script>alert('직원 삭제 실패 + $result);history.back();</script>";
 }
 ?>
