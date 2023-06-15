@@ -58,6 +58,6 @@ if(!$result){
     mysqli_query($conn, “rollback”); 
 }
 echo "<script>alert('포인트 적립 완료! +$point !');location.href='receipt.php';</script>";
-mysqli_query($conn, “commit”);
+mysqli_query($conn, "commit");
 mysqli_close($conn);
 ?>
